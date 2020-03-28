@@ -1,0 +1,27 @@
+Названия методов 
+//create - return smth что-то возвращает
+//save - return void
+
+Try с ресурсами и без ресурсов () 
+В Java 7 появилась конструкция try-with-resources. Используем её:
+try (OutputStream stream = openOutputStream()) {
+    // что-то делаем со stream
+}
+https://javarush.ru/groups/posts/isklyucheniya-java
+try-with-resources, которая автоматически закрывает ресурсы, открытые в блоке try.
+Пример
+public String input() throws MyException {
+    String s = null;
+    try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
+        s = reader.readLine();
+   } catch (IOException e) {
+       System.out.println(e.getMessage());
+   }
+    if (s.equals("")){
+        throw new MyException ("String can not be empty!");
+    }
+    return s;
+}
+
+
+

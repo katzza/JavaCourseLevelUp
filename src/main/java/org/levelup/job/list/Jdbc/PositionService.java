@@ -7,10 +7,10 @@ import java.util.Collection;
 
 public interface PositionService {
     Position createPosition(String name) throws SQLException;
-    void deletePositionById(int id);
-    void deletePositionByName(String name);
-    Collection<Position> findAllPositionWhichNameLike(String name);
-    Position findPositionById(int id);
-    Collection <Position> findAllPositions();
-    Position findPositionByName(String name);
+    void deletePositionById(int id) throws SQLException;
+    void deletePositionByName(String name) throws SQLException;
+    Collection<Position> findAllPositionWhichNameLike(String name) throws SQLException;
+    Position findPositionById(int id) throws SQLException;
+    Collection <Position> findAllPositions() throws SQLException;
+    Collection <Position> findPositionByName(String name) throws SQLException;
 }

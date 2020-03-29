@@ -1,5 +1,14 @@
-select if not exists
+1.
+statement.executeUpdate(); select
+statement.executeQuery(); update , delete, create
 
+2.
+в Postgre можно сделать так
+ SELECT 'dev';
+ в оракле то же самое from dual
+
+3.
+select if not exists :
 INSERT INTO positions(name)
     SELECT 'dev'
     WHERE NOT EXISTS (
@@ -14,3 +23,4 @@ INSERT INTO positions(name)
   У каждого ? свой индекс
            statement.setString(1, name);
            statement.setString(2, name);
+

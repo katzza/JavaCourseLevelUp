@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JbdcUtils {
+public class JdbcUtils {
     public static Connection getConnection () throws SQLException { //подключение к нашей бд
         //url -
         //jdbc: <vendor name>://<host(IP address)>:<port>/<db name>

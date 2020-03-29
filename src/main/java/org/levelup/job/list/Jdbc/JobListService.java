@@ -11,7 +11,7 @@ public class JobListService {
     //save - return void
 
     public Position createPosition(String name) throws SQLException {   //!открыть коннекшн - закрыть коннекшн
-        Connection connection = JbdcUtils.getConnection();
+        Connection connection = JdbcUtils.getConnection();
         //Statement интерфейсs для CRUD
         // PreparedStatement избегать скль инъекций
         // CallableStatement -запускать функции и процедуры на sql
@@ -31,9 +31,9 @@ public class JobListService {
         return new Position(id, positionName);
     }
 
-    public void deletePosition(String name) throws SQLException {
+    public void deletePosition(String name) throws SQLException {  //без каскадного удаления
         // try with resource - close with autoclosable
-        try (Connection connection = JbdcUtils.getConnection()) {
+        try (Connection connection = JdbcUtils.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("delete from positions where name = ?");
             statement.setString(1, name); //предотвращение скль инъекций
             int rowDeleted = statement.executeUpdate();
@@ -42,7 +42,7 @@ public class JobListService {
     }
 
     public Collection<Position> findAll() throws SQLException {
-        try (Connection connection = JbdcUtils.getConnection()) {
+        try (Connection connection = JdbcUtils.getConnection()) {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from positions");
             return extractPositions(resultSet);
@@ -51,7 +51,7 @@ public class JobListService {
     }
 
     public Collection<Position> findPositionWithNameLike(String name) throws SQLException {
-        try (Connection connection = JbdcUtils.getConnection()) {
+        try (Connection connection = JdbcUtils.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("select * from positions where name like ?");
             statement.setString(1, name);
             ResultSet resultSet = statement.executeQuery();
@@ -60,7 +60,7 @@ public class JobListService {
     }
 
 
-    private Collection<Position> extractPositions(ResultSet resultSet) throws SQLException {
+    public Collection<Position> extractPositions(ResultSet resultSet) throws SQLException {
         Collection<Position> positions = new ArrayList<>();
         while (resultSet.next()) {
             int id = resultSet.getInt("id");

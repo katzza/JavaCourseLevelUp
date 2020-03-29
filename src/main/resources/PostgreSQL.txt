@@ -1,0 +1,16 @@
+select if not exists
+
+INSERT INTO positions(name)
+    SELECT 'dev'
+    WHERE NOT EXISTS (
+        SELECT 1 FROM positions WHERE name='dev'
+    );
+
+   =>
+   insert into positions (name)
+   select (?) where not exists (
+   select 1 from positions
+   where name = (?));
+  У каждого ? свой индекс
+           statement.setString(1, name);
+           statement.setString(2, name);

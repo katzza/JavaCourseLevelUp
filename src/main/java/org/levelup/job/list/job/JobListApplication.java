@@ -1,4 +1,4 @@
-package org.levelup.job.list;
+package org.levelup.job.list.job;
 import org.levelup.job.list.Domain.Position;
 import  org.levelup.job.list.Jdbc.JobListService;
 

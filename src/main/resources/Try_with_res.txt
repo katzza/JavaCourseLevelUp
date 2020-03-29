@@ -7,6 +7,9 @@ Try с ресурсами и без ресурсов ()
 try (OutputStream stream = openOutputStream()) {
     // что-то делаем со stream
 }
+
+try (ресурсы тут)
+
 https://javarush.ru/groups/posts/isklyucheniya-java
 try-with-resources, которая автоматически закрывает ресурсы, открытые в блоке try.
 Пример
@@ -22,6 +25,8 @@ public String input() throws MyException {
     }
     return s;
 }
+
+
 
 
 

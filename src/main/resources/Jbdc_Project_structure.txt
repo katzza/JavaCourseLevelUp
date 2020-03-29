@@ -1,0 +1,21 @@
+//Структура
+
+В поме указываем вендера бд
+<dependencies>
+    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>42.2.11</version>
+    </dependency>
+</dependencies>
+
+package org.levelup.job.list.Jdbc;
+public class JbdcUtils - коннекшн с базой
+public class - JobListService методы работы с базой  public Position createPosition
+
+package org.levelup.job.list.Domain;
+public class Position //описание 1 строки таблицы Positions
+
+package org.levelup.job.list.job;
+public class JobListApplication //всё, что делаем с базой

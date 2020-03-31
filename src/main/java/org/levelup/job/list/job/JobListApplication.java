@@ -12,7 +12,7 @@ import java.util.Collection;
 public class JobListApplication {
     public static void main(String[] args) throws SQLException {
         JobListService service = new JobListService();
-       /* for (int i =0; i<10; i++)
+       /*for (int i =0; i<10; i++)
         {service.createPosition("Developer"+i+i);}
         System.out.println();
         Collection<Position> allPositions = service.findAll();

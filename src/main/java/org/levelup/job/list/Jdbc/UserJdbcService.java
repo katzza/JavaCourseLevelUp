@@ -42,13 +42,11 @@ public class UserJdbcService implements UserService {
             PreparedStatement statement = connection.prepareStatement("select * from users where passport = ?");
             statement.setString(1, passport);
             ResultSet resultSet = statement.executeQuery();
-          //  System.out.println(resultSet.next());
-            resultSet.next();
-        //    System.out.println(resultSet.next());
-            String name = resultSet.getString("name");
-            System.out.println(resultSet.next());
+            System.out.println( resultSet.next());
             String lastName = resultSet.getString("last_name");
+            String name = resultSet.getString("name");
             int id = resultSet.getInt("id");
+            System.out.println("KKKK" + id +" " + name +"   "+ lastName + "   " + passport);
             return new User(id, name, lastName, passport);
         }
     }

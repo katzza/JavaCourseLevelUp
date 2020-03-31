@@ -10,7 +10,7 @@ import java.util.Collection;
 public class UserJdbcService implements UserService {
     @Override
     public User createUser(String name, String lastName, String passport) throws SQLException {
-        try (Connection connection = JdbcUtils.getConnection();) {
+        try (Connection connection = JdbcUtils.getConnection()) {
             User us = this.findByPassport(passport);
             if (us != null) {
                 return us;
@@ -38,7 +38,7 @@ public class UserJdbcService implements UserService {
 
     @Override
     public User findByPassport(String passport) throws SQLException {
-        try (Connection connection = JdbcUtils.getConnection();) {
+        try (Connection connection = JdbcUtils.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("select * from users where passport = ?");
             statement.setString(1, passport);
             ResultSet resultSet = statement.executeQuery();
@@ -53,7 +53,7 @@ public class UserJdbcService implements UserService {
 
     @Override
     public Collection<User> findByNameAndLastName(String name, String lastName) throws SQLException {
-        try (Connection connection = JdbcUtils.getConnection();) {
+        try (Connection connection = JdbcUtils.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("select * from users where name = (?) and last_name = (?)");
             statement.setString(1, name);
             statement.setString(2, lastName);
@@ -64,7 +64,7 @@ public class UserJdbcService implements UserService {
 
     @Override
     public Collection<User> findByLastName(String lastName) throws SQLException {
-        try (Connection connection = JdbcUtils.getConnection();) {
+        try (Connection connection = JdbcUtils.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("select * from users where last_name = (?)");
             statement.setString(1, lastName);
             ResultSet resultSet = statement.executeQuery();
@@ -74,8 +74,8 @@ public class UserJdbcService implements UserService {
 
     @Override
     public void deleteUserByPassport(String passport) throws SQLException {
-        try (Connection connection = JdbcUtils.getConnection();) {
-            PreparedStatement statement = connection.prepareStatement("delete from users where passport = (?)");
+        try (Connection connection = JdbcUtils.getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("delete from users where passport = (?)"); ////todo удалить из связанной таблицы
             statement.setString(1, passport);
             int rowDeleted = statement.executeUpdate();
             System.out.println("deleted" + rowDeleted);
@@ -84,7 +84,7 @@ public class UserJdbcService implements UserService {
 
     @Override
     public User updateUser(String passport, String name, String lastName) throws SQLException {
-        try (Connection connection = JdbcUtils.getConnection();) {
+        try (Connection connection = JdbcUtils.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(
                     "UPDATE users set name =(?),  last_name = (?) WHERE passport = (?)");
             statement.setString(1, name);

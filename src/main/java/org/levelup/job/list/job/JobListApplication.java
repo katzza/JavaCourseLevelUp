@@ -12,8 +12,8 @@ import java.util.Collection;
 public class JobListApplication {
     public static void main(String[] args) throws SQLException {
         JobListService service = new JobListService();
-       /*for (int i =0; i<10; i++)
-        {service.createPosition("Developer"+i+i);}
+       for (int i =0; i<3; i++)
+        {service.createPosition("Scrummaster"+i+i);}
         System.out.println();
         Collection<Position> allPositions = service.findAll();
 
@@ -24,24 +24,18 @@ public class JobListApplication {
         Collection <Position> likePos = service.findPositionWithNameLike("Dev%");
         for (Position position:likePos){
             System.out.println(position.getName()+" "+position.getId());
-        }*/
+        }
 
        PositionJdbcService pos1 = new PositionJdbcService();
-        Position Director = pos1.createPosition("Hr1");
-        Collection<Position> likePos = pos1.findAllPositionWhichNameLike("Dev%");
+        Position Director = pos1.createPosition("Hr2");
+        Collection<Position> likePos1 = pos1.findAllPositionWhichNameLike("Dev%");
         Position x = pos1.findPositionById(1);
-       /*  pos1.deletePositionById(1);
-       // pos1.deletePositionById(100);
-      //   pos1.deletePositionByName("Sec");
-        pos1.deletePositionByName("devops");
-        pos1.findAllPositions();
-        pos1.findPositionByName("Developer");*/
+        pos1.deletePositionById(2);
+
         UserJdbcService us = new UserJdbcService();
-    //    us.createUser("Vasj", "Petrov", "0000 600000");
-   //     us.createUser("Losj", "Nessky", "1111 555555");
-        User u1 = us.findByPassport("4016 666666");
+        us.createUser("Oleg", "Smirnov", "4567 654321");
+         User u1 = us.findByPassport("4016 666666");
         Collection<User> u2 = us.findByLastName("Petrov");
-    //    us.findByLastName("AAAAA");
-        ;
+
     }
 }

@@ -9,7 +9,7 @@ import java.util.Collection;
 public class PositionJdbcService implements PositionService {
     @Override
     public Position createPosition(String name) throws SQLException {
-        try (Connection connection = JdbcUtils.getConnection();) {
+        try (Connection connection = JdbcUtils.getConnection()) {
             //1. Добавили в базу
             PreparedStatement statement = connection.prepareStatement("insert into positions (name) " +
                     "select (?) where not exists (select 1 from positions where name = (?))"); // ? имеет индекс 1 и 2
@@ -33,7 +33,7 @@ public class PositionJdbcService implements PositionService {
     public void deletePositionById(int id) throws SQLException { //без каскадного удаления
         try (Connection connection = JdbcUtils.getConnection()) {
             PreparedStatement statement = connection.prepareStatement
-                    ("delete from positions where id = ?");
+                    ("delete from positions where id = ?"); //todo удалить из связанной таблицы
             statement.setInt(1, id); //предотвращение скль инъекций
             int rowDeleted = statement.executeUpdate();
             System.out.println("deleted" + rowDeleted);
@@ -44,7 +44,7 @@ public class PositionJdbcService implements PositionService {
     public void deletePositionByName(String name) throws SQLException {  //без каскадного удаления
         try (Connection connection = JdbcUtils.getConnection()) {
             PreparedStatement statement = connection.prepareStatement
-                    ("delete from positions where name = ?");
+                    ("delete from positions where name = ?"); //todo удалить из связанной таблицы
             statement.setString(1, name); //предотвращение скль инъекций
             int rowDeleted = statement.executeUpdate();
             System.out.println("deleted" + rowDeleted);

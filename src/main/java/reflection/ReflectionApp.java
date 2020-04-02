@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 
 public class ReflectionApp {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InstantiationException {
+        //Region Cars
         Car carObj = new Car("Rio");
         Class<?> carClass = carObj.getClass();
         // LIKE Class<?> carClass1 = Car.class;   //одинаково
@@ -24,8 +25,8 @@ public class ReflectionApp {
         modelField.set(carObj, "Solaris");
         System.out.println(carObj.getModel());
 
-//!!!!!тут ошибка, исправить
-        Method changeModelM = carClass.getDeclaredMethod("changeModel", String.class, String.class);
+
+        Method changeModelM = carClass.getDeclaredMethod("changeModel", String.class);
         changeModelM.setAccessible(true);
         // LIKE carObj.changeModel("Polo");
         changeModelM.invoke(carObj, "Polo");
@@ -40,5 +41,7 @@ public class ReflectionApp {
         Car car = new Car("Polo");
         RandomStringAnnotationProcessor.process(car);
         System.out.println(car.getBrand() + " " + car.getModel());
+        //End of region Cars
+
     }
 }

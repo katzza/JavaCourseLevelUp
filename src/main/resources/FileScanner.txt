@@ -1,0 +1,26 @@
+Рекурсивный обход папок
+
+
+   public void processFilesFromFolder(File folder, ArrayList<String> files) {
+        File[] folderEntries = folder.listFiles();
+        for (File entry : folderEntries) {
+            if (entry.isDirectory()) {
+                processFilesFromFolder(entry, files);
+                continue;
+            }
+            // иначе вам попался файл, обрабатывайте его!
+            files.add(entry.toString());
+        }
+    }
+
+    Ну и путь
+     String pathName = "C:\\Users\\emokeeva\\IdeaProjects\\pr2\\src\\main\\java\\ru\\levelup\\lessons";
+            ArrayList<String> files = new ArrayList<>();
+            ScanningFiles s = new ScanningFiles();
+            s.processFilesFromFolderS(pathName, files);  //для стринги см ниже
+
+            public class ScanningFiles {
+                public void processFilesFromFolderS(String pathName, ArrayList<String> files) {
+                    File folder = new File(pathName);
+                    processFilesFromFolder(folder, files);
+                }

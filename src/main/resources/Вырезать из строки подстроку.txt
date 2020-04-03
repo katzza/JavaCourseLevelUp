@@ -1,0 +1,8 @@
+
+начинающуюся с опред. символа
+Экранируем через \
+ for (String file : files
+        ) {
+            int lastSlash = file.lastIndexOf("\\");
+            javaClasses.add(file.substring(lastSlash + 1));
+        }

@@ -1,0 +1,3 @@
+Находясь в мейне класса RefHomeApp
+
+ String pathToPackage = RefHomeApp.class.getResource("").toString();

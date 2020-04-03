@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionApp {
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InstantiationException {
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InstantiationException, ClassNotFoundException {
         //Region Cars
         Car carObj = new Car("Rio");
         Class<?> carClass = carObj.getClass();
@@ -42,6 +42,6 @@ public class ReflectionApp {
         RandomStringAnnotationProcessor.process(car);
         System.out.println(car.getBrand() + " " + car.getModel());
         //End of region Cars
-
+       // Class claz =  Class.forName("reflection.Car");
     }
 }

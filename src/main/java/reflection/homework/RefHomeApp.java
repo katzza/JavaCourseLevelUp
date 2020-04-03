@@ -1,16 +1,15 @@
 package reflection.homework;
 
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class RefHomeApp {
-    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-    //    File file1 = new File("RefHomeApp");
-   //    String sss = file1.getAbsolutePath().toString() ;
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
 
-
+//String path = System.getProperty("user.dir");
         String pathName = "C:\\Users\\emokeeva\\IdeaProjects\\pr2\\src\\main\\java\\ru\\levelup\\lessons";
         ArrayList<String> files = new ArrayList<>();
         ScanningFiles s = new ScanningFiles();
@@ -18,18 +17,11 @@ public class RefHomeApp {
         ArrayList<String> javaClasses = new ArrayList<>();
         for (String file : files
         ) {
-            int lastSlash = file.lastIndexOf("\\");
-            javaClasses.add(file.substring(lastSlash + 1));
+            int substrIndex = file.lastIndexOf("\\ru\\levelup");
+            javaClasses.add(file.substring(substrIndex + 1, file.length()-5).replace('\\', '.'));
         }
-        ArrayList<Class> javaObjects = null;
-        s.createObjects (javaClasses, javaObjects);
-        int i = 0;
-
-
-    }
-
-
-
+        s.createObjects (javaClasses);
+     }
     }
 
 

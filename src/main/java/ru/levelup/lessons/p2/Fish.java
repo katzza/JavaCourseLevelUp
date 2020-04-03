@@ -8,7 +8,12 @@ public class Fish {
         name = "Murena";
         weight = 2;
     }
-    public String toString(){
-        return "Fish "+name+ " weight: "+weight;
+
+    @Override
+    public String toString() {
+        return "Fish{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                '}';
     }
 }

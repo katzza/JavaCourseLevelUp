@@ -11,8 +11,13 @@ public class Cat {
         this.isMouseHunter = false;
     }
 
+    @Override
     public String toString() {
-        return "Cat " + name + " eats " + food + " isMouseHunter: " + isMouseHunter;
+        return "Cat{" +
+                "name='" + name + '\'' +
+                ", food=" + food +
+                ", isMouseHunter=" + isMouseHunter +
+                '}';
     }
 }
 

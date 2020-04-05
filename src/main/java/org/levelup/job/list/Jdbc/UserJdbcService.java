@@ -1,6 +1,5 @@
 package org.levelup.job.list.Jdbc;
 
-import org.levelup.job.list.Domain.Position;
 import org.levelup.job.list.Domain.User;
 
 import java.sql.*;

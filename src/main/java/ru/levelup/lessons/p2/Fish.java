@@ -1,7 +1,10 @@
 package ru.levelup.lessons.p2;
 
+import reflection.homework.RandomInt;
+
 public class Fish {
     public String name;
+    @RandomInt(min = 5, max = 30)
     private int weight;
 
     public Fish() {

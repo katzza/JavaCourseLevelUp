@@ -1,6 +1,5 @@
 package hibernate;
 
-import hibernate.domain.User;
 import hibernate.service.UserService;
 import org.hibernate.SessionFactory;
 

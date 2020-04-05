@@ -2,8 +2,6 @@ package reflection;
 
 import reflection.annotation.RandomString;
 
-import java.lang.annotation.Target;
-
 public class Car {
     @RandomString (maxLength =10)
     public String brand;

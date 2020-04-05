@@ -4,7 +4,7 @@ import reflection.homework.RandomInt;
 
 public class Dog {
     public String breed;
-    @RandomInt(min = 1, max = 20)
+   // @RandomInt(min = 1, max = 20)
     private String name;
     public Colour color;
     @RandomInt(min = 1, max = 20)

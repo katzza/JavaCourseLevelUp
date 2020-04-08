@@ -1,0 +1,23 @@
+
+Шпора
+https://habr.com/ru/post/265061/
+Для работы с hibernate используется реализация интерфейса SessionFactory. Отметьте себе, что она создается один раз для приложения!
+HQL
+http://javastudy.ru/hibernate/hibernate-hql-examples/
+HQL использует имя класса взамен имени таблицы, а также имя свойства вместо имени колонки!
+
+1. В папке domain создаём таблицы, аннториуем, проверяем название с базой
+@Entity
+   @Table(name = "users")  //name of table
+   public class User {     //name of entity    !! в базе -users
+       @Id //primary key
+       @GeneratedValue (strategy = GenerationType.IDENTITY)
+       //serializable
+       private Integer id;
+
+2. Добавить эти классы в маппинг hibernate.cfg.xml
+
+ <mapping class="hibernate.domain.User" />
+
+ 3. Про запросы HQL
+ https://proselyte.net/tutorials/hibernate-tutorial/hibernate-query-language/

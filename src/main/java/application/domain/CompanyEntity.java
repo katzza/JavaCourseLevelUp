@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 // Flyway (.sql)
 // Liquebase (.xml)
@@ -27,5 +28,12 @@ public class CompanyEntity {
     @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn (name ="id")
     private CompanyLegalDetailsEntity legalDetails;
+
+    @ManyToMany
+    @JoinTable (name = "company_positions",
+    joinColumns = @JoinColumn(name ="company_id"),
+            inverseJoinColumns = @JoinColumn (name ="position_id")
+    )
+    private List<PositionEntity> positions;
 
 }

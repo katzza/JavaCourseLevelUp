@@ -14,11 +14,13 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
 
-        <mapping class="hibernate.domain.User" />
+        <mapping class="application.domain.UserEntity" />
         <mapping class="hibernate.domain.Position"/>
         <mapping class="application.domain.CompanyEntity"/>
         <mapping class="application.domain.CompanyLegalDetailsEntity"/>
         <mapping class="application.domain.UserAddressEntity"/>
+        <mapping class="application.domain.PositionEntity"/>
+        <mapping class="application.domain.JobListEntity"/>
     </session-factory>
 </hibernate-configuration>
 

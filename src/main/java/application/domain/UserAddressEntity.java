@@ -1,6 +1,5 @@
 package application.domain;
 
-import hibernate.domain.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,6 +15,6 @@ public class UserAddressEntity {
     private Integer id;
     private String address;
 
-    @ManyToOne
-    private User user;
+  //  @ManyToOne
+  //  private UserEntity user;
 }

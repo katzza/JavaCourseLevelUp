@@ -1,11 +1,9 @@
 package hibernate.service;
 
 import hibernate.domain.Position;
-import hibernate.domain.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
 import java.util.List;
 

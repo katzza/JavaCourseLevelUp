@@ -17,7 +17,7 @@ HQL использует имя класса взамен имени табли�
 
 2. Добавить эти классы в маппинг hibernate.cfg.xml
 
- <mapping class="hibernate.domain.User" />
+ <mapping class="application.domain.UserEntity" />
 
  3. Про запросы HQL
  https://proselyte.net/tutorials/hibernate-tutorial/hibernate-query-language/

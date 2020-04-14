@@ -1,8 +1,7 @@
 package application.dao;
 
 import application.domain.UserAddressEntity;
-import hibernate.domain.User;
-import lombok.Data;
+import application.domain.UserEntity;
 import org.hibernate.SessionFactory;
 
 import java.util.Collection;
@@ -15,9 +14,9 @@ public class UserdaoImpl extends AbstractDao implements UserDao {
     }
 
     @Override
-    public User createUser(String name, String lastName, String passport, Collection<String> addresses) {
+    public UserEntity createUser(String name, String lastName, String passport, Collection<String> addresses) {
         return runInTransaction(session -> {
-            User user = new User();
+            UserEntity user = new UserEntity();
             user.setName(name);
             user.setLastName(lastName);
             user.setPassport(passport);
@@ -27,7 +26,7 @@ public class UserdaoImpl extends AbstractDao implements UserDao {
                     .map(address -> {
                         UserAddressEntity addressEntity = new UserAddressEntity();
                         addressEntity.setAddress(address);
-                        addressEntity.setUser(user);
+              //          addressEntity.setUser(user);
                         return addressEntity;
                     })
                     .collect(Collectors.toList());

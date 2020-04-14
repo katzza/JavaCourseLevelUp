@@ -1,4 +1,4 @@
-package hibernate.domain;
+package application.domain;
 
 import application.domain.UserAddressEntity;
 import lombok.Data;
@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "users")  //name of table
-public class User {     //name of entity
+public class UserEntity {     //name of entity
     @Id //primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //serializable
@@ -24,6 +24,6 @@ public class User {     //name of entity
 
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name ="user_id")
+    @JoinColumn(name ="user_id", nullable = false)
     private List<UserAddressEntity> addresses;
 }

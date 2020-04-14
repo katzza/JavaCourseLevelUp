@@ -3,16 +3,15 @@ package application;
 
 import application.dao.*;
 import application.domain.CompanyEntity;
-import application.domain.CompanyLegalDetailsEntity;
+import application.domain.JobListEntity;
 import application.domain.UserAddressEntity;
-import hibernate.domain.User;
+import application.domain.UserEntity;
 import org.hibernate.SessionFactory;
 import hibernate.JobSessionFactoryConfiguration;
 
-import java.sql.Array;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 
 public class JobApplication {
 
@@ -22,8 +21,8 @@ public class JobApplication {
         CompanyDao companyDao = new CompanyDaoImpl(factory);
 
      //   CompanyLegalDetailsDao legalDetailsDao = new CompanyLegalDetailsDaoImpl(factory);
-   //     companyDao.create("aaaaa", "33333", "444444");
-    //    CompanyEntity company = companyDao.findByEin("111");
+        companyDao.create("QQbbbb", "999777", "qqzzzzzz");
+       Integer companyId = companyDao.findByEin("999777").getId();
    //     legalDetailsDao.updateLegalDetailsInCompany(company.getId(), "Sber", "222333");
     //    Collection<CompanyLegalDetailsEntity> legalDetails = legalDetailsDao.findAllbyBankName("Sber");
     //    for (CompanyLegalDetailsEntity a : legalDetails
@@ -32,7 +31,7 @@ public class JobApplication {
     //    }
 
         UserDao userDao  =new UserdaoImpl(factory);
-       User user1 = userDao.createUser("dsdfds", "sfdsf", "dfdfff", new ArrayList<>(Arrays.asList(
+       UserEntity user1 = userDao.createUser("dsdfds", "sfdsf", "1133dfdfff", new ArrayList<>(Arrays.asList(
                 "sssssss",
                 "aaaaaaa",
                 "222222"
@@ -40,6 +39,14 @@ public class JobApplication {
        for (UserAddressEntity addressEntity:user1.getAddresses()){
            System.out.println(addressEntity.getAddress());
        }
+       PositionDao positionDao = new PositionDaoImpl(factory);
+       Integer positionId = positionDao.createPosition("Analyst").getId();
+
+       JobListDao jobListDao = new JobListDaoImpl(factory);
+     JobListEntity jobRecord =   jobListDao.createJobRecord(companyId, user1.getId(), positionId, LocalDate.of(2019, 12, 4),
+                null);
+
+
         factory.close();
 
     }

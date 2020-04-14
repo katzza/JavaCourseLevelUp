@@ -17,6 +17,8 @@
         <mapping class="hibernate.domain.User" />
         <mapping class="hibernate.domain.Position"/>
         <mapping class="application.domain.CompanyEntity"/>
+        <mapping class="application.domain.CompanyLegalDetailsEntity"/>
+        <mapping class="application.domain.UserAddressEntity"/>
     </session-factory>
 </hibernate-configuration>
 

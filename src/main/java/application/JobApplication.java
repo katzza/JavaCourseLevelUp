@@ -21,8 +21,8 @@ public class JobApplication {
         CompanyDao companyDao = new CompanyDaoImpl(factory);
 
      //   CompanyLegalDetailsDao legalDetailsDao = new CompanyLegalDetailsDaoImpl(factory);
-        companyDao.create("QQbbbb", "999777", "qqzzzzzz");
-       Integer companyId = companyDao.findByEin("999777").getId();
+        companyDao.create("tr", "tr", "tr");
+       Integer companyId = companyDao.findByEin("tr").getId();
    //     legalDetailsDao.updateLegalDetailsInCompany(company.getId(), "Sber", "222333");
     //    Collection<CompanyLegalDetailsEntity> legalDetails = legalDetailsDao.findAllbyBankName("Sber");
     //    for (CompanyLegalDetailsEntity a : legalDetails
@@ -31,7 +31,7 @@ public class JobApplication {
     //    }
 
         UserDao userDao  =new UserdaoImpl(factory);
-       UserEntity user1 = userDao.createUser("dsdfds", "sfdsf", "1133dfdfff", new ArrayList<>(Arrays.asList(
+       UserEntity user1 = userDao.createUser("trr", "trr", "trr", new ArrayList<>(Arrays.asList(
                 "sssssss",
                 "aaaaaaa",
                 "222222"
@@ -40,13 +40,13 @@ public class JobApplication {
            System.out.println(addressEntity.getAddress());
        }
        PositionDao positionDao = new PositionDaoImpl(factory);
-       Integer positionId = positionDao.createPosition("Analyst").getId();
+       Integer positionId = positionDao.createPosition("trr").getId();
 
        JobListDao jobListDao = new JobListDaoImpl(factory);
-     JobListEntity jobRecord =   jobListDao.createJobRecord(companyId, user1.getId(), positionId, LocalDate.of(2019, 12, 4),
-                null);
+  //   JobListEntity jobRecord =   jobListDao.createJobRecord(companyId, user1.getId(), positionId, LocalDate.of(2019, 12, 4),
+   //             null);
 
-
+JobListEntity jobRecord = jobListDao.findJobRecord(companyId, user1.getId(), positionId);
         factory.close();
 
     }

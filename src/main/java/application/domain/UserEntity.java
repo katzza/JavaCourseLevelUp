@@ -2,12 +2,16 @@ package application.domain;
 
 import application.domain.UserAddressEntity;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
-@Data
+
+@Getter
+@Setter
 @Entity
 @Table(name = "users")  //name of table
 public class UserEntity {     //name of entity
@@ -26,4 +30,14 @@ public class UserEntity {     //name of entity
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name ="user_id", nullable = false)
     private List<UserAddressEntity> addresses;
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", passport='" + passport + '\'' +
+                '}';
+    }
 }

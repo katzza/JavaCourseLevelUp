@@ -36,4 +36,13 @@ public class CompanyEntity {
     )
     private List<PositionEntity> positions;
 
+    @Override
+    public String toString() {
+        return "CompanyEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", ein='" + ein + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

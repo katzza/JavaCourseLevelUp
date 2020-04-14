@@ -11,10 +11,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Table (name = "job_list")
 public class JobListEntity {
-    @Embedded
+    @EmbeddedId
     private JobListId id;
 
-    @ManyToMany
+    @ManyToOne
     @MapsId ("company_id")
     private CompanyEntity company;
 
